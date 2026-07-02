@@ -1,0 +1,88 @@
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--iso-spacing-3);
+  padding: var(--iso-spacing-4);
+  border-inline-start: var(--iso-border-width-2) solid var(--_edge);
+  border-radius: var(--iso-radius-lg);
+  background: var(--_bg);
+  color: var(--_fg);
+  box-shadow: var(--iso-shadow-md);
+  font-family: var(--iso-font-family-sans);
+}
+
+/* Static unit: entry/exit animation belongs to the ToastRegion organism, so there is no
+   transition here and no prefers-reduced-motion guard needed. The composed Buttons bring
+   their own :focus-visible rings and motion guards. */
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  /* Icon glyphs fill with currentColor, so the slot inherits the tone's subtle-fg for free. */
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--iso-spacing-1);
+  min-width: 0;
+}
+
+/* Two-class specificity so the tone color reliably beats the Text atom's own tone class,
+   regardless of stylesheet order. */
+.toast .title {
+  color: var(--_fg);
+}
+
+.action {
+  display: flex;
+  gap: var(--iso-spacing-2);
+  margin-block-start: var(--iso-spacing-1);
+}
+
+/* Square ghost button — the Button's sm size class supplies the height; the larger font size
+   scales the plain × glyph (two-class specificity to beat the Button's size class). */
+.dismiss {
+  flex-shrink: 0;
+  padding-inline: 0;
+  aspect-ratio: 1;
+}
+
+.toast .dismiss {
+  font-size: var(--iso-font-size-lg);
+}
+
+/* Tones map semantic tone tokens onto private properties the root consumes. The edge uses the
+   tone's solid-bg — except caution, whose solid-bg is too light for a thin graphic, so it uses
+   the tokens' documented graphic exception (--iso-color-caution-graphic). */
+
+.tone-neutral {
+  --_bg: var(--iso-color-neutral-subtle-bg);
+  --_fg: var(--iso-color-neutral-subtle-fg);
+  --_edge: var(--iso-color-neutral-solid-bg);
+}
+
+.tone-accent {
+  --_bg: var(--iso-color-accent-subtle-bg);
+  --_fg: var(--iso-color-accent-subtle-fg);
+  --_edge: var(--iso-color-accent-solid-bg);
+}
+
+.tone-positive {
+  --_bg: var(--iso-color-positive-subtle-bg);
+  --_fg: var(--iso-color-positive-subtle-fg);
+  --_edge: var(--iso-color-positive-solid-bg);
+}
+
+.tone-critical {
+  --_bg: var(--iso-color-critical-subtle-bg);
+  --_fg: var(--iso-color-critical-subtle-fg);
+  --_edge: var(--iso-color-critical-solid-bg);
+}
+
+.tone-caution {
+  --_bg: var(--iso-color-caution-subtle-bg);
+  --_fg: var(--iso-color-caution-subtle-fg);
+  --_edge: var(--iso-color-caution-graphic);
+}
