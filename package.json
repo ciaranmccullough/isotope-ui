@@ -1,0 +1,120 @@
+{
+  "name": "isotope-ui",
+  "version": "0.0.0",
+  "description": "A React component library built on modern web standards and Atomic Design — real HTML elements, design tokens, zero internal state.",
+  "keywords": [
+    "react",
+    "components",
+    "component-library",
+    "design-system",
+    "design-tokens",
+    "atomic-design",
+    "css-modules",
+    "accessibility"
+  ],
+  "license": "MIT",
+  "author": "Ciaran McCullough",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciaranmccullough/isotope-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ciaranmccullough/isotope-ui/issues"
+  },
+  "homepage": "https://github.com/ciaranmccullough/isotope-ui#readme",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/isotope-ui.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.27.0",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "pnpm build:tokens && vite build && node scripts/postbuild.mjs",
+    "build:tokens": "tsx scripts/build-tokens.ts",
+    "lint": "eslint . --max-warnings=0 && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "prepare": "husky",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,cjs,mjs}": [
+      "prettier --write",
+      "eslint --fix --max-warnings=0"
+    ],
+    "*.{css,md,json,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.28.0",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@eslint/js": "^9.25.0",
+    "@storybook/addon-a11y": "^9.0.0",
+    "@storybook/addon-docs": "^9.0.0",
+    "@storybook/react-vite": "^9.0.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.0",
+    "@types/jest": "^30.0.0",
+    "@types/jest-axe": "^3.5.9",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.0",
+    "eslint": "^9.25.0",
+    "eslint-config-prettier": "^10.1.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.0",
+    "jest-axe": "^9.0.0",
+    "jest-environment-jsdom": "^30.0.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "storybook": "^9.0.0",
+    "ts-jest": "^29.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.62.1",
+    "vite": "^6.3.0",
+    "vite-plugin-dts": "^4.5.0"
+  }
+}
