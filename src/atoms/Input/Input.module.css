@@ -1,0 +1,61 @@
+.input {
+  display: inline-block;
+  background: var(--iso-color-surface);
+  border: var(--iso-border-width-1) solid var(--iso-color-border-strong);
+  border-radius: var(--iso-radius-md);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+  font-weight: var(--iso-font-weight-regular);
+  line-height: var(--iso-line-height-tight);
+  transition:
+    background-color var(--iso-duration-fast) var(--iso-easing-standard),
+    border-color var(--iso-duration-fast) var(--iso-easing-standard),
+    color var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.input::placeholder {
+  color: var(--iso-color-text-muted);
+}
+
+.input:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  background: var(--iso-color-surface-sunken);
+  color: var(--iso-color-text-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input {
+    transition: none;
+  }
+}
+
+/* Invalid state: critical border; the focus ring stays --iso-color-focus-ring. */
+
+.invalid {
+  border-color: var(--iso-color-critical-border);
+}
+
+/* Sizes */
+
+.size-sm {
+  height: var(--iso-size-control-sm);
+  padding-inline: var(--iso-spacing-3);
+  font-size: var(--iso-font-size-sm);
+}
+
+.size-md {
+  height: var(--iso-size-control-md);
+  padding-inline: var(--iso-spacing-4);
+  font-size: var(--iso-font-size-md);
+}
+
+.size-lg {
+  height: var(--iso-size-control-lg);
+  padding-inline: var(--iso-spacing-5);
+  font-size: var(--iso-font-size-lg);
+}
