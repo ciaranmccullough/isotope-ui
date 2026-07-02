@@ -1,0 +1,37 @@
+.tr {
+  background-color: transparent;
+}
+
+/* Rows are not focusable by default; the ring engages only when the consumer adds tabIndex
+   (e.g. roving tabindex in a grid). */
+.tr:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+/* Interactive */
+
+.interactive {
+  cursor: pointer;
+  transition: background-color var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.interactive:hover {
+  background-color: var(--iso-color-surface-sunken);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive {
+    transition: none;
+  }
+}
+
+/* Selected */
+
+.selected {
+  background-color: var(--iso-color-accent-subtle-bg);
+}
+
+.interactive.selected:hover {
+  background-color: var(--iso-color-accent-subtle-bg-hover);
+}
