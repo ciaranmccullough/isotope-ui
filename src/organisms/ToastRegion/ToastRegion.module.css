@@ -1,0 +1,49 @@
+.region {
+  position: fixed;
+  z-index: var(--iso-z-toast);
+  display: grid;
+  gap: var(--iso-spacing-3);
+  width: min(var(--iso-size-container-xs), calc(100vw - var(--iso-spacing-8)));
+  /* Empty region must never intercept clicks; the toasts themselves stay interactive. */
+  pointer-events: none;
+}
+
+.region > * {
+  pointer-events: auto;
+  animation: toast-in var(--iso-duration-base) var(--iso-easing-enter);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--iso-spacing-2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .region > * {
+    animation: none;
+  }
+}
+
+/* Placements */
+
+.placement-top-start {
+  inset-block-start: var(--iso-spacing-4);
+  inset-inline-start: var(--iso-spacing-4);
+}
+
+.placement-top-end {
+  inset-block-start: var(--iso-spacing-4);
+  inset-inline-end: var(--iso-spacing-4);
+}
+
+.placement-bottom-start {
+  inset-block-end: var(--iso-spacing-4);
+  inset-inline-start: var(--iso-spacing-4);
+}
+
+.placement-bottom-end {
+  inset-block-end: var(--iso-spacing-4);
+  inset-inline-end: var(--iso-spacing-4);
+}
