@@ -1,0 +1,15 @@
+/* One stylesheet for the three table sections — they are one semantic unit (see CLAUDE.md). */
+
+.thead {
+  background: var(--iso-color-surface-sunken);
+}
+
+/* Tbody has no visual opinions (zebra striping belongs to the Table organism) — no class. */
+
+/* The top rule renders only under `border-collapse: collapse` (row-group borders are invisible
+   in separated-borders mode) — the composing table must set it. */
+.tfoot {
+  background: var(--iso-color-surface-sunken);
+  border-top: var(--iso-border-width-1) solid var(--iso-color-border-strong);
+  font-weight: var(--iso-font-weight-medium);
+}
