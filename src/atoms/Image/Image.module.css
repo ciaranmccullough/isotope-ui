@@ -1,0 +1,53 @@
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fit — object-fit keywords (structural, not tokenizable) */
+
+.fit-cover {
+  object-fit: cover;
+}
+
+.fit-contain {
+  object-fit: contain;
+}
+
+.fit-fill {
+  object-fit: fill;
+}
+
+.fit-scale-down {
+  object-fit: scale-down;
+}
+
+.fit-none {
+  object-fit: none;
+}
+
+/* Radius */
+
+.radius-none {
+  border-radius: var(--iso-radius-none);
+}
+
+.radius-sm {
+  border-radius: var(--iso-radius-sm);
+}
+
+.radius-md {
+  border-radius: var(--iso-radius-md);
+}
+
+.radius-lg {
+  border-radius: var(--iso-radius-lg);
+}
+
+.radius-xl {
+  border-radius: var(--iso-radius-xl);
+}
+
+.radius-full {
+  border-radius: var(--iso-radius-full);
+}
