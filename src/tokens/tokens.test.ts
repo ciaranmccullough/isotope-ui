@@ -19,7 +19,9 @@ describe('design tokens', () => {
   });
 
   it('never collides token names across groups', () => {
-    const names = Object.keys(buildTokenVariables());
-    expect(new Set(names).size).toBe(names.length);
+    // buildTokenVariables() throws on the first duplicate --iso-* name (semantic colors share
+    // the `color` prefix with the palette, so collisions are a real hazard). Completing without
+    // throwing is the assertion.
+    expect(() => buildTokenVariables()).not.toThrow();
   });
 });

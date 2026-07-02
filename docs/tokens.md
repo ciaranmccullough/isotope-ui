@@ -20,9 +20,11 @@ in two forms, always in sync (a Jest test enforces it):
 | colors (palette)  | `--iso-color-gray-50` … `--iso-color-gray-900`, `blue`, `green`, `red`, `amber`                      |
 | colors (semantic) | `--iso-color-text`, `--iso-color-surface`, `--iso-color-border`, `--iso-color-focus-ring`            |
 | colors (tones)    | `--iso-color-<tone>-solid-bg/-solid-fg/-subtle-bg/…` for `neutral/accent/positive/critical/caution`  |
+| shadows           | `--iso-shadow-sm/md/lg/overlay`                                                                      |
+| borders           | `--iso-border-width-1/2`, `--iso-focus-ring-width`, `--iso-focus-ring-offset`                        |
 | sizing            | `--iso-size-control-md`, `--iso-size-icon-sm`, `--iso-size-avatar-lg`                                |
 | typography        | `--iso-font-family-sans`, `--iso-font-size-xl`, `--iso-font-weight-bold`, `--iso-line-height-normal` |
-| motion            | `--iso-duration-fast/base/slow/slower`, `--iso-easing-standard/enter/exit`                           |
+| motion            | `--iso-duration-fast/base/slow/slower/loop`, `--iso-easing-standard/enter/exit`                      |
 | z-index           | `--iso-z-dropdown/sticky/overlay/modal/toast/tooltip`                                                |
 | breakpoints       | `--iso-breakpoint-sm/md/lg/xl/2xl` (informational — see below)                                       |
 

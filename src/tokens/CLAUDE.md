@@ -5,8 +5,9 @@ define a raw value (hex, px, ms, unitless z-index…).
 
 ## Shape
 
-- One TS module per token group: `spacing`, `radii`, `colors`, `sizing`, `typography`, `motion`,
-  `zIndex`, `breakpoints`. Each exports a `const`-asserted object + a `…Token` key-type union.
+- One TS module per token group: `spacing`, `radii`, `colors`, `shadows`, `borders`, `sizing`,
+  `typography`, `motion`, `zIndex`, `breakpoints`. Each exports a `const`-asserted object + a
+  `…Token` key-type union.
 - `tokens.css` is **generated** — never edit by hand. Run `pnpm build:tokens` after changing any
   TS token module. A Jest test fails if TS and CSS drift.
 - CSS custom property naming: `--iso-<group>-<key>` with nested keys joined by `-`

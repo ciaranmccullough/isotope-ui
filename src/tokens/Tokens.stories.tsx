@@ -32,7 +32,7 @@ function Swatch({ name }: { name: string }) {
           background: `var(--iso-color-${name})`,
           height: 'var(--iso-spacing-10)',
           borderRadius: 'var(--iso-radius-md)',
-          border: '1px solid var(--iso-color-border)',
+          border: 'var(--iso-border-width-1) solid var(--iso-color-border)',
         }}
       />
       <div style={label}>--iso-color-{name}</div>
@@ -97,7 +97,7 @@ export const Radii: StoryObj = {
               width: 'var(--iso-size-avatar-xl)',
               borderRadius: `var(--iso-radius-${key})`,
               background: 'var(--iso-color-neutral-subtle-bg)',
-              border: '1px solid var(--iso-color-border-strong)',
+              border: 'var(--iso-border-width-1) solid var(--iso-color-border-strong)',
             }}
           />
           <div style={label}>--iso-radius-{key}</div>

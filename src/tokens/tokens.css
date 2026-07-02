@@ -102,9 +102,9 @@
   --iso-color-accent-subtle-bg-hover: #dbeafe;
   --iso-color-accent-subtle-fg: #1d4ed8;
   --iso-color-accent-border: #93c5fd;
-  --iso-color-positive-solid-bg: #16a34a;
-  --iso-color-positive-solid-bg-hover: #15803d;
-  --iso-color-positive-solid-bg-active: #166534;
+  --iso-color-positive-solid-bg: #15803d;
+  --iso-color-positive-solid-bg-hover: #166534;
+  --iso-color-positive-solid-bg-active: #14532d;
   --iso-color-positive-solid-fg: #ffffff;
   --iso-color-positive-subtle-bg: #f0fdf4;
   --iso-color-positive-subtle-bg-hover: #dcfce7;
@@ -126,6 +126,10 @@
   --iso-color-caution-subtle-bg-hover: #fef3c7;
   --iso-color-caution-subtle-fg: #92400e;
   --iso-color-caution-border: #fcd34d;
+  --iso-shadow-sm: 0 1px 2px 0 rgb(17 24 39 / 0.05);
+  --iso-shadow-md: 0 4px 8px -2px rgb(17 24 39 / 0.1), 0 2px 4px -2px rgb(17 24 39 / 0.06);
+  --iso-shadow-lg: 0 12px 24px -4px rgb(17 24 39 / 0.12), 0 4px 8px -4px rgb(17 24 39 / 0.08);
+  --iso-shadow-overlay: 0 24px 48px -12px rgb(17 24 39 / 0.25);
   --iso-size-control-sm: 2rem;
   --iso-size-control-md: 2.5rem;
   --iso-size-control-lg: 3rem;
@@ -143,6 +147,10 @@
   --iso-size-container-md: 48rem;
   --iso-size-container-lg: 64rem;
   --iso-size-container-xl: 80rem;
+  --iso-border-width-1: 1px;
+  --iso-border-width-2: 2px;
+  --iso-focus-ring-width: 2px;
+  --iso-focus-ring-offset: 2px;
   --iso-font-family-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --iso-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
   --iso-font-size-xs: 0.75rem;
@@ -169,6 +177,7 @@
   --iso-duration-base: 200ms;
   --iso-duration-slow: 320ms;
   --iso-duration-slower: 480ms;
+  --iso-duration-loop: 1600ms;
   --iso-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --iso-easing-enter: cubic-bezier(0, 0, 0.2, 1);
   --iso-easing-exit: cubic-bezier(0.4, 0, 1, 1);

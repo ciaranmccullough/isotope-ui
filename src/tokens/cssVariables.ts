@@ -6,6 +6,8 @@
 import { spacing } from './spacing';
 import { radii } from './radii';
 import { palette, colors } from './colors';
+import { shadows } from './shadows';
+import { borderWidth, focusRing } from './borders';
 import { sizing } from './sizing';
 import { typography } from './typography';
 import { motion } from './motion';
@@ -14,9 +16,15 @@ import { breakpoints } from './breakpoints';
 
 export function buildTokenVariables(): Record<string, string> {
   const vars: Record<string, string> = {};
+  const set = (name: string, value: string): void => {
+    if (name in vars) {
+      throw new Error(`Duplicate token name: ${name}`);
+    }
+    vars[name] = value;
+  };
   const add = (prefix: string, group: Record<string, string>): void => {
     for (const [key, value] of Object.entries(group)) {
-      vars[`--iso-${prefix}-${key}`] = value;
+      set(`--iso-${prefix}-${key}`, value);
     }
   };
 
@@ -25,14 +33,17 @@ export function buildTokenVariables(): Record<string, string> {
 
   for (const [name, entry] of Object.entries(palette)) {
     if (typeof entry === 'string') {
-      vars[`--iso-color-${name}`] = entry;
+      set(`--iso-color-${name}`, entry);
     } else {
       add(`color-${name}`, entry);
     }
   }
   add('color', colors);
 
+  add('shadow', shadows);
   add('size', sizing);
+  add('border-width', borderWidth);
+  add('focus-ring', focusRing);
   add('font-family', typography.fontFamily);
   add('font-size', typography.fontSize);
   add('font-weight', typography.fontWeight);

@@ -1,6 +1,8 @@
 export { spacing, type SpacingToken } from './spacing';
 export { radii, type RadiusToken } from './radii';
 export { palette, colors, tones, type Tone, type ColorToken } from './colors';
+export { shadows, type ShadowToken } from './shadows';
+export { borderWidth, focusRing, type BorderWidthToken, type FocusRingToken } from './borders';
 export { sizing, type SizingToken } from './sizing';
 export {
   typography,

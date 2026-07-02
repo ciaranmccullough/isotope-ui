@@ -117,10 +117,10 @@ export const colors = {
   'accent-subtle-fg': palette.blue['700'],
   'accent-border': palette.blue['300'],
 
-  // Tone: positive
-  'positive-solid-bg': palette.green['600'],
-  'positive-solid-bg-hover': palette.green['700'],
-  'positive-solid-bg-active': palette.green['800'],
+  // Tone: positive (starts at green-700 — white on green-600 is only 3.30:1, below AA)
+  'positive-solid-bg': palette.green['700'],
+  'positive-solid-bg-hover': palette.green['800'],
+  'positive-solid-bg-active': palette.green['900'],
   'positive-solid-fg': palette.white,
   'positive-subtle-bg': palette.green['50'],
   'positive-subtle-bg-hover': palette.green['100'],

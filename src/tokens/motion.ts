@@ -9,6 +9,8 @@ export const motion = {
     base: '200ms',
     slow: '320ms',
     slower: '480ms',
+    /** Looping/ambient animation cycle (skeleton shimmer, spinners) — not for transitions. */
+    loop: '1600ms',
   },
   easing: {
     /** General-purpose: settles quickly without overshoot. */
