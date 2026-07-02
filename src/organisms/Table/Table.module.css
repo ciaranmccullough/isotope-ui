@@ -1,0 +1,12 @@
+.table {
+  width: 100%;
+  /* Collapse so row-group borders (Tfoot's top rule, cell border-bottoms) render. */
+  border-collapse: collapse;
+  background: var(--iso-color-surface);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+}
+
+.striped tbody tr:nth-child(even) {
+  background: var(--iso-color-surface-sunken);
+}
