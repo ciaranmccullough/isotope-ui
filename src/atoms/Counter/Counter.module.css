@@ -1,0 +1,24 @@
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--iso-spacing-1);
+}
+
+/* Square step buttons: the Button size class supplies the height. */
+.step-button {
+  padding-inline: 0;
+  aspect-ratio: 1;
+}
+
+.input {
+  width: var(--iso-spacing-20);
+  text-align: center;
+  /* The step Buttons replace the native spinners — hide the duplicate UI. */
+  appearance: textfield;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
