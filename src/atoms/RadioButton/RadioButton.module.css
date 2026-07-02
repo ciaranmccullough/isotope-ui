@@ -1,0 +1,42 @@
+.radio-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--iso-spacing-2);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-md);
+  font-weight: var(--iso-font-weight-regular);
+  line-height: var(--iso-line-height-normal);
+  color: var(--iso-color-text);
+  cursor: pointer;
+}
+
+/* The platform draws the radio; we only tint and size it. */
+.input {
+  accent-color: var(--iso-color-accent-solid-bg);
+  margin: var(--iso-spacing-0);
+  flex-shrink: 0;
+  cursor: inherit;
+}
+
+.input:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+/* Disabled state (also covers `<fieldset disabled>` ancestors). */
+.radio-button:has(.input:disabled) {
+  color: var(--iso-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Sizes — control dimensions only; label typography stays fixed. */
+
+.size-sm .input {
+  width: var(--iso-size-icon-sm);
+  height: var(--iso-size-icon-sm);
+}
+
+.size-md .input {
+  width: var(--iso-size-icon-md);
+  height: var(--iso-size-icon-md);
+}
