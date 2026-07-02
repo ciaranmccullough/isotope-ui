@@ -1,0 +1,51 @@
+.link {
+  /* radius-sm rounds the :focus-visible outline (outline follows border-radius). */
+  border-radius: var(--iso-radius-sm);
+  transition:
+    color var(--iso-duration-fast) var(--iso-easing-standard),
+    text-decoration-color var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.link:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition: none;
+  }
+}
+
+/* Tones */
+
+.tone-link {
+  color: var(--iso-color-text-link);
+}
+
+.tone-link:hover {
+  color: var(--iso-color-text-link-hover);
+}
+
+.tone-inherit {
+  color: inherit;
+}
+
+/* Underline */
+
+.underline-hover {
+  text-decoration-line: none;
+}
+
+.underline-hover:hover,
+.underline-hover:focus-visible {
+  text-decoration-line: underline;
+}
+
+.underline-always {
+  text-decoration-line: underline;
+}
+
+.underline-none {
+  text-decoration-line: none;
+}
