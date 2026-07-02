@@ -1,0 +1,55 @@
+/* Reset the fieldset's UA chrome (border, spacing, min-inline-size), then lay out with gap. */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iso-spacing-2);
+  border: none;
+  margin: var(--iso-spacing-0);
+  padding: var(--iso-spacing-0);
+  min-inline-size: var(--iso-spacing-0);
+}
+
+/*
+ * Browsers hoist the rendered legend out of the fieldset's flex flow, so the container gap
+ * cannot reach it — the margin-block-end supplies that edge with the same token.
+ */
+.legend {
+  padding: var(--iso-spacing-0);
+  margin-block-end: var(--iso-spacing-2);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-sm);
+  font-weight: var(--iso-font-weight-semibold);
+  line-height: var(--iso-line-height-normal);
+  color: var(--iso-color-text);
+}
+
+.options {
+  display: flex;
+}
+
+/* Directions */
+
+.direction-vertical .options {
+  flex-direction: column;
+  gap: var(--iso-spacing-2);
+}
+
+.direction-horizontal .options {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--iso-spacing-2) var(--iso-spacing-4);
+}
+
+.error {
+  margin: var(--iso-spacing-0);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-sm);
+  font-weight: var(--iso-font-weight-regular);
+  line-height: var(--iso-line-height-normal);
+  color: var(--iso-color-critical-subtle-fg);
+}
+
+/*
+ * No motion: nothing animates, so no duration/easing tokens and no reduced-motion guard.
+ * Focus rings come from the composed RadioButton's :focus-visible styles.
+ */
