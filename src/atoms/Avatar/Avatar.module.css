@@ -1,0 +1,57 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: var(--iso-radius-full);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.fallback {
+  background: var(--iso-color-neutral-subtle-bg);
+  color: var(--iso-color-neutral-subtle-fg);
+  font-family: var(--iso-font-family-sans);
+  font-weight: var(--iso-font-weight-medium);
+  line-height: var(--iso-line-height-tight);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Sizes — width/height from the avatar size scale; font-size drives the fallback initials.
+   size-xl pairs with --iso-font-size-2xl (not -xl) to keep the ~37% initials-to-avatar optical
+   ratio of the lg step; there is no dedicated avatar font-size token group. */
+
+.size-xs {
+  width: var(--iso-size-avatar-xs);
+  height: var(--iso-size-avatar-xs);
+  font-size: var(--iso-font-size-xs);
+}
+
+.size-sm {
+  width: var(--iso-size-avatar-sm);
+  height: var(--iso-size-avatar-sm);
+  font-size: var(--iso-font-size-sm);
+}
+
+.size-md {
+  width: var(--iso-size-avatar-md);
+  height: var(--iso-size-avatar-md);
+  font-size: var(--iso-font-size-md);
+}
+
+.size-lg {
+  width: var(--iso-size-avatar-lg);
+  height: var(--iso-size-avatar-lg);
+  font-size: var(--iso-font-size-lg);
+}
+
+.size-xl {
+  width: var(--iso-size-avatar-xl);
+  height: var(--iso-size-avatar-xl);
+  font-size: var(--iso-font-size-2xl);
+}
