@@ -1,0 +1,19 @@
+/*
+ * Deliberately bare. ListItem is a primitive: typography, spacing, and layout inherit
+ * from the parent list, and marker/indentation decisions belong to the List molecule.
+ * No tokens are consumed — this atom draws nothing of its own.
+ */
+
+.list-item {
+  /* Intentionally no declarations — the native <li> is already correct. */
+}
+
+/* Markers */
+
+.marker-inherit {
+  /* Intentionally no declarations — keep the parent list's marker untouched. */
+}
+
+.marker-none {
+  list-style: none;
+}
