@@ -1,0 +1,30 @@
+.th {
+  padding: var(--iso-spacing-2) var(--iso-spacing-3);
+  border-bottom: var(--iso-border-width-1) solid var(--iso-color-border-strong);
+  color: var(--iso-color-text-secondary);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-sm);
+  font-weight: var(--iso-font-weight-semibold);
+}
+
+/* Alignment (logical values — RTL-aware) */
+
+.align-start {
+  text-align: start;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-end {
+  text-align: end;
+}
+
+/* Numeric headers: tabular digits, end-aligned. Declared after the align-* classes so it wins
+   the equal-specificity text-align tie — `numeric` takes precedence over `align`. */
+
+.numeric {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
