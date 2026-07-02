@@ -24,6 +24,11 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime', 'react-dom/client'],
+      output: {
+        // Interactive, ref-forwarding components are client components by nature. The banner
+        // lets React Server Components (Next.js App Router) import them directly.
+        banner: "'use client';",
+      },
     },
   },
 });
