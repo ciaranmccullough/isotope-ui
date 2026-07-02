@@ -1,0 +1,33 @@
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+  fill: currentcolor;
+}
+
+/* Sizes */
+
+.size-xs {
+  width: var(--iso-size-icon-xs);
+  height: var(--iso-size-icon-xs);
+}
+
+.size-sm {
+  width: var(--iso-size-icon-sm);
+  height: var(--iso-size-icon-sm);
+}
+
+.size-md {
+  width: var(--iso-size-icon-md);
+  height: var(--iso-size-icon-md);
+}
+
+.size-lg {
+  width: var(--iso-size-icon-lg);
+  height: var(--iso-size-icon-lg);
+}
+
+.size-xl {
+  width: var(--iso-size-icon-xl);
+  height: var(--iso-size-icon-xl);
+}
