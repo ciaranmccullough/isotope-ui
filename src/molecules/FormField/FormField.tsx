@@ -1,6 +1,5 @@
 import { cloneElement, forwardRef, useId } from 'react';
 import type { Ref } from 'react';
-import { Input } from '../../atoms/Input';
 import type { FormFieldControlProps, FormFieldProps } from './FormField.types';
 import styles from './FormField.module.css';
 
@@ -18,7 +17,9 @@ function assignRef<T>(target: Ref<T> | null | undefined, node: T | null): void {
  *
  * - The control keeps its uncontrolled behavior; FormField only injects wiring props via
  *   `cloneElement`: `id`, `aria-describedby` (only the paragraphs that render), `aria-invalid`
- *   (+ `invalid` when the child is the library Input) while `error` is set, and `required`.
+ *   while `error` is set, and `required`. Library controls (Input, Select) style
+ *   `[aria-invalid='true']` in their own CSS, so the injected attribute alone produces the
+ *   critical border — no component-identity checks needed.
  * - Props the consumer set on the child win over the injected ones — except `id`, which
  *   FormField owns because the label/description/error wiring derives from it.
  * - `required` is handled the platform way: the native attribute goes to the control (screen
@@ -65,11 +66,6 @@ export const FormField = forwardRef<HTMLElement, FormFieldProps>(function FormFi
   if (required && childProps.required === undefined) {
     injected.required = true;
   }
-  // `invalid` (critical border) is a library-Input prop; other controls only get `aria-invalid`.
-  if (error && children.type === Input && childProps.invalid === undefined) {
-    injected.invalid = true;
-  }
-
   const classes = [styles.field, className].filter(Boolean).join(' ');
 
   return (

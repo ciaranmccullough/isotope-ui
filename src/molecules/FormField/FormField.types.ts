@@ -3,8 +3,10 @@ import type { AriaAttributes, ComponentPropsWithoutRef, ReactElement, Ref } from
 /**
  * The props FormField may inject into its single control child via `cloneElement`. Any control
  * that accepts these (the library Input, Select, Counter, native `<input>`/`<select>`/
- * `<textarea>`…) is a valid child. `invalid` is only injected when the child is the library
- * Input (other controls just receive `aria-invalid`).
+ * `<textarea>`…) is a valid child. Only `aria-invalid` is injected on error — the library
+ * Input and Select style `[aria-invalid='true']` themselves, so no `invalid` prop injection
+ * (or component-identity check) is needed. `invalid` remains in this surface for consumers
+ * composing their own wiring.
  */
 export interface FormFieldControlProps {
   id?: string;

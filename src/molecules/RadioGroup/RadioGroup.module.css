@@ -44,8 +44,9 @@
   margin: var(--iso-spacing-0);
   font-family: var(--iso-font-family-sans);
   font-size: var(--iso-font-size-sm);
-  font-weight: var(--iso-font-weight-regular);
-  line-height: var(--iso-line-height-normal);
+  /* Matches FormField's error treatment — the two error renderers must not drift. */
+  font-weight: var(--iso-font-weight-medium);
+  line-height: var(--iso-line-height-snug);
   color: var(--iso-color-critical-subtle-fg);
 }
 

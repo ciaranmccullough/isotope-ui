@@ -31,10 +31,10 @@ FormField clones its single child and injects only wiring props (`FormFieldContr
 - `aria-describedby` — space-joined ids of **only the paragraphs that render** (description
   and/or error). Skipped if the consumer set their own on the child (the derived ids are
   `` `${id}-description` `` / `` `${id}-error` `` if they want to include them manually).
-- `aria-invalid: true` — while `error` is set. Additionally `invalid: true` when the child is
-  the **library Input** (identity check against the imported atom) so it gets the critical
-  border; other controls only receive `aria-invalid` because `invalid` is not a platform
-  attribute and would leak onto unknown elements.
+- `aria-invalid: true` — while `error` is set. That attribute alone produces the critical
+  border on library controls: Input and Select style `[aria-invalid='true']` in their own CSS,
+  so FormField needs no component-identity checks and never injects non-platform props onto
+  unknown elements.
 - `required` — while `required` is set. This is the platform way: screen readers announce the
   native attribute, and the label renders an `aria-hidden` asterisk (visual only — the
   accessible name stays the label text). No visually-hidden " (required)" text is added.

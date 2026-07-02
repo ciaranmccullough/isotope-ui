@@ -38,7 +38,10 @@
 /* Invalid state: critical border plus an inset ring so the boundary reads as 2px without
    layout shift — perceivable beyond a hue shift. The focus ring stays --iso-color-focus-ring. */
 
-.invalid {
+/* The attribute selector makes any aria-invalid injector (e.g. FormField) render the same
+   visual state as the `invalid` prop. */
+.invalid,
+.input[aria-invalid='true'] {
   border-color: var(--iso-color-critical-solid-bg);
   box-shadow: inset 0 0 0 var(--iso-border-width-1) var(--iso-color-critical-solid-bg);
 }

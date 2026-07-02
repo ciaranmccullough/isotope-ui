@@ -39,7 +39,8 @@
    reads as 2px without layout shift — perceivable beyond a hue shift. The focus ring stays
    --iso-color-focus-ring. */
 
-.invalid {
+.invalid,
+.select[aria-invalid='true'] {
   border-color: var(--iso-color-critical-solid-bg);
   box-shadow: inset 0 0 0 var(--iso-border-width-1) var(--iso-color-critical-solid-bg);
 }

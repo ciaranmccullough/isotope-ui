@@ -53,6 +53,13 @@
   font-size: var(--iso-font-size-lg);
 }
 
+/* Ghost Button hover uses the tone's subtle-bg — identical to the toast background, so hover
+   feedback vanishes on this tinted surface. Step to subtle-bg-hover instead (two-class
+   specificity beats the Button's emphasis class deterministically). */
+.toast .dismiss:hover:not(:disabled) {
+  background: var(--_dismiss-hover);
+}
+
 /* Tones map semantic tone tokens onto private properties the root consumes. The edge uses the
    tone's solid-bg — except caution, whose solid-bg is too light for a thin graphic, so it uses
    the tokens' documented graphic exception (--iso-color-caution-graphic). */
@@ -60,29 +67,34 @@
 .tone-neutral {
   --_bg: var(--iso-color-neutral-subtle-bg);
   --_fg: var(--iso-color-neutral-subtle-fg);
+  --_dismiss-hover: var(--iso-color-neutral-subtle-bg-hover);
   --_edge: var(--iso-color-neutral-solid-bg);
 }
 
 .tone-accent {
   --_bg: var(--iso-color-accent-subtle-bg);
   --_fg: var(--iso-color-accent-subtle-fg);
+  --_dismiss-hover: var(--iso-color-accent-subtle-bg-hover);
   --_edge: var(--iso-color-accent-solid-bg);
 }
 
 .tone-positive {
   --_bg: var(--iso-color-positive-subtle-bg);
   --_fg: var(--iso-color-positive-subtle-fg);
+  --_dismiss-hover: var(--iso-color-positive-subtle-bg-hover);
   --_edge: var(--iso-color-positive-solid-bg);
 }
 
 .tone-critical {
   --_bg: var(--iso-color-critical-subtle-bg);
   --_fg: var(--iso-color-critical-subtle-fg);
+  --_dismiss-hover: var(--iso-color-critical-subtle-bg-hover);
   --_edge: var(--iso-color-critical-solid-bg);
 }
 
 .tone-caution {
   --_bg: var(--iso-color-caution-subtle-bg);
   --_fg: var(--iso-color-caution-subtle-fg);
+  --_dismiss-hover: var(--iso-color-caution-subtle-bg-hover);
   --_edge: var(--iso-color-caution-graphic);
 }
