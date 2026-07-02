@@ -1,0 +1,101 @@
+.text {
+  margin: 0;
+  font-family: var(--iso-font-family-sans);
+  line-height: var(--iso-line-height-normal);
+}
+
+/* Sizes — visual scale, independent of the semantic element */
+
+.size-xs {
+  font-size: var(--iso-font-size-xs);
+}
+
+.size-sm {
+  font-size: var(--iso-font-size-sm);
+}
+
+.size-md {
+  font-size: var(--iso-font-size-md);
+}
+
+.size-lg {
+  font-size: var(--iso-font-size-lg);
+}
+
+.size-xl {
+  font-size: var(--iso-font-size-xl);
+}
+
+.size-2xl {
+  font-size: var(--iso-font-size-2xl);
+}
+
+.size-3xl {
+  font-size: var(--iso-font-size-3xl);
+}
+
+.size-4xl {
+  font-size: var(--iso-font-size-4xl);
+}
+
+/* Weights */
+
+.weight-regular {
+  font-weight: var(--iso-font-weight-regular);
+}
+
+.weight-medium {
+  font-weight: var(--iso-font-weight-medium);
+}
+
+.weight-semibold {
+  font-weight: var(--iso-font-weight-semibold);
+}
+
+.weight-bold {
+  font-weight: var(--iso-font-weight-bold);
+}
+
+/* Tones — text color intents */
+
+.tone-default {
+  color: var(--iso-color-text);
+}
+
+.tone-secondary {
+  color: var(--iso-color-text-secondary);
+}
+
+.tone-muted {
+  color: var(--iso-color-text-muted);
+}
+
+.tone-disabled {
+  color: var(--iso-color-text-disabled);
+}
+
+.tone-inverse {
+  color: var(--iso-color-text-inverse);
+}
+
+/* Alignment — logical values follow the writing direction */
+
+.align-start {
+  text-align: start;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-end {
+  text-align: end;
+}
+
+/* Truncation — single-line ellipsis; the consumer constrains the width */
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
