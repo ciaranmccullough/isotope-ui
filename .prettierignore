@@ -5,3 +5,5 @@ coverage/
 pnpm-lock.yaml
 CHANGELOG.md
 src/tokens/tokens.css
+.next/
+next-env.d.ts

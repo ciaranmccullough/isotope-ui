@@ -41,7 +41,9 @@ uncontrolled — the DOM is the source of truth, read via refs/`FormData`. This 
 
 Vite library mode → ESM (`dist/index.js`) + type declarations + extracted CSS
 (`dist/isotope-ui.css` = tokens + component styles; `dist/tokens.css` = tokens only).
-`sideEffects` is scoped to CSS so JS exports tree-shake cleanly.
+`sideEffects` is scoped to CSS so JS exports tree-shake cleanly. The bundle opens with a
+`'use client'` banner: ref-forwarding interactive components are client components by nature,
+and the banner lets React Server Components import the library directly.
 
 ## Repository layout
 

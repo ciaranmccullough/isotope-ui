@@ -39,6 +39,9 @@ import 'isotope-ui/styles.css'; // tokens + component styles
 
 Only using the tokens? `import 'isotope-ui/tokens.css'`.
 
+Works in React Server Components out of the box — the bundle ships a `'use client'` banner, so
+Next.js App Router layouts can import components directly.
+
 ## Uncontrolled by design
 
 ```tsx
@@ -83,6 +86,17 @@ yours.
 | Organisms | Dialog, Table, Navbar, Footer, ToastProvider/ToastRegion                                                                               |
 
 Status: under active development, building atoms-first. See the repo issues/PRs for progress.
+
+## Examples
+
+[`examples/react-router`](examples/react-router) and [`examples/nextjs`](examples/nextjs) are
+standalone apps (own lockfiles) that install the library via `file:../..` and prove the two
+headline claims against the real packaged output:
+
+- **Router-agnostic Link** — `<Link asChild><RouterLink/></Link>` /
+  `<Link asChild><NextLink/></Link>`: the library styles, the router navigates.
+- **Uncontrolled forms** — FormField + Input/Select/RadioGroup/Counter submitting through
+  `FormData`, no value props anywhere.
 
 ## Development
 
