@@ -1,0 +1,73 @@
+/* Platform-native: no `appearance: none` and no custom chevron — the UA keeps drawing its own
+   dropdown arrow and popup. Only the closed control's box (font, colors, border, radius, size)
+   is styled. */
+
+.select {
+  display: inline-block;
+  background: var(--iso-color-surface);
+  border: var(--iso-border-width-1) solid var(--iso-color-border-control);
+  border-radius: var(--iso-radius-md);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+  font-weight: var(--iso-font-weight-regular);
+  line-height: var(--iso-line-height-tight);
+  transition:
+    background-color var(--iso-duration-fast) var(--iso-easing-standard),
+    border-color var(--iso-duration-fast) var(--iso-easing-standard),
+    box-shadow var(--iso-duration-fast) var(--iso-easing-standard),
+    color var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.select:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+.select:disabled {
+  cursor: not-allowed;
+  background: var(--iso-color-surface-sunken);
+  color: var(--iso-color-text-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select {
+    transition: none;
+  }
+}
+
+/* Invalid state: mirrors Input's .invalid — critical border plus an inset ring so the boundary
+   reads as 2px without layout shift — perceivable beyond a hue shift. The focus ring stays
+   --iso-color-focus-ring. */
+
+.invalid {
+  border-color: var(--iso-color-critical-solid-bg);
+  box-shadow: inset 0 0 0 var(--iso-border-width-1) var(--iso-color-critical-solid-bg);
+}
+
+/* Sizes */
+
+.size-sm {
+  height: var(--iso-size-control-sm);
+  padding-inline: var(--iso-spacing-3);
+  font-size: var(--iso-font-size-sm);
+}
+
+.size-md {
+  height: var(--iso-size-control-md);
+  padding-inline: var(--iso-spacing-4);
+  font-size: var(--iso-font-size-md);
+}
+
+.size-lg {
+  height: var(--iso-size-control-lg);
+  padding-inline: var(--iso-spacing-5);
+  font-size: var(--iso-font-size-lg);
+}
+
+/* Listbox rendering (`multiple`, or a native `size` attribute via `htmlSize`): the platform
+   sizes the box to its visible rows — the fixed control height must not fight it. */
+
+.select[multiple],
+.select[size] {
+  height: auto;
+}
