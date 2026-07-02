@@ -1,0 +1,31 @@
+.caption {
+  padding-block: var(--iso-spacing-2);
+  color: var(--iso-color-text-secondary);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-sm);
+  line-height: var(--iso-line-height-normal);
+}
+
+/* Align */
+
+.align-start {
+  text-align: start;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-end {
+  text-align: end;
+}
+
+/* Side */
+
+.side-top {
+  caption-side: top;
+}
+
+.side-bottom {
+  caption-side: bottom;
+}
