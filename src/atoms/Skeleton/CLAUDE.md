@@ -5,7 +5,7 @@ skeleton is a purely decorative loading placeholder with no HTML equivalent, and
 removed from the accessibility tree entirely — `aria-hidden="true"` is set after the prop
 spread, so it is **always** present and cannot be overridden by consumers.
 
-## UI model (`SkeletonProps` extends `ComponentPropsWithoutRef<'div'>`)
+## UI model (`SkeletonProps` extends `Omit<ComponentPropsWithoutRef<'div'>, 'children'>`)
 
 | Prop     | Values                    | Default                        |
 | -------- | ------------------------- | ------------------------------ |
@@ -20,7 +20,8 @@ spread, so it is **always** present and cannot be overridden by consumers.
   consumer-supplied. **Prefer token vars**, e.g. `width="var(--iso-size-avatar-md)"`.
   A consumer `style` object is merged last and can override anything.
 
-No children, no other styling props. Ref forwards to the `<div>`. Dumb and stateless; not
+No children (`children` is omitted at the type level), no other styling props. Ref forwards
+to the `<div>`. Dumb and stateless; not
 a form control, so nothing to control/uncontrol.
 
 ## Tokens consumed

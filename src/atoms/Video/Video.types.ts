@@ -9,8 +9,8 @@ export interface VideoProps extends ComponentPropsWithoutRef<'video'> {
   /** `object-fit` behavior. Unset leaves the browser default (`contain`). */
   fit?: VideoFit;
   /**
-   * CSS `aspect-ratio` (e.g. `'16 / 9'`), applied as an inline style. Wins over
-   * `style.aspectRatio` when both are given.
+   * CSS `aspect-ratio` (e.g. `'16 / 9'`), applied as an inline style. An `aspectRatio` set via
+   * the `style` prop wins over this — `style` is the consumer escape hatch.
    */
   aspectRatio?: string;
 }

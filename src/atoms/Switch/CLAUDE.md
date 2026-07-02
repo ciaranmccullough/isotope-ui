@@ -10,7 +10,7 @@ both names the switch and toggles it on click.
 
 | Prop             | Values             | Default |
 | ---------------- | ------------------ | ------- |
-| `size`           | `sm · md`          | `md`    |
+| `size`           | `sm · md · lg`     | `md`    |
 | `defaultChecked` | `boolean` (native) | `false` |
 | `children`       | visible label text | —       |
 
@@ -20,15 +20,19 @@ to the `<input>`.
 
 ## Tokens consumed
 
-- Track: sm `--iso-spacing-8` × `--iso-spacing-4`, md `--iso-spacing-10` × `--iso-spacing-5`
+- Track: sm `--iso-spacing-8` × `--iso-spacing-4`, md `--iso-spacing-10` × `--iso-spacing-5`,
+  lg `--iso-spacing-12` × `--iso-spacing-6`
   (size classes set private `--_track-width/height` props consumed by the input);
-  `--iso-radius-full`; unchecked `--iso-color-border-strong`, checked
+  `--iso-radius-full`; unchecked `--iso-color-border-control`, checked
   `--iso-color-accent-solid-bg`.
-- Thumb (`::before`): sm `--iso-spacing-3`, md `--iso-spacing-4` (`--_thumb-size`);
-  `--iso-color-surface`, `--iso-radius-full`, `--iso-shadow-sm`. Inset and checked travel are
-  `calc()` of the track/thumb tokens only.
+- Thumb (`::before`): sm `--iso-spacing-3`, md `--iso-spacing-4`, lg `--iso-spacing-5`
+  (`--_thumb-size`); `--iso-color-surface`, `--iso-radius-full`, `--iso-shadow-sm`. Inset and
+  checked travel are `calc()` of the track/thumb tokens only.
 - Label: `--iso-spacing-2` (gap), `--iso-font-family-sans`, `--iso-font-size-md`,
-  `--iso-line-height-normal`, `--iso-color-text`.
+  `--iso-font-weight-regular` (pinned so bold contexts don't embolden the label),
+  `--iso-line-height-normal`, `--iso-color-text`; `--iso-spacing-6` min-inline/block-size keeps
+  the pointer target ≥ 24px when label-less (WCAG 2.5.8), with `align-items: center` keeping the
+  control centered.
 - Focus: `--iso-focus-ring-width/offset`, `--iso-color-focus-ring` (`:focus-visible` on the
   input).
 - Motion: `--iso-duration-fast`, `--iso-easing-standard` on track color + thumb transform
@@ -45,7 +49,7 @@ via `:focus-visible` tokens on the input itself.
 
 ## Stories / tests must cover
 
-Both sizes, unchecked + `defaultChecked`, disabled (off and on), aria-label-only usage;
+All three sizes, unchecked + `defaultChecked`, disabled (off and on), aria-label-only usage;
 accessible name from label text and from `aria-label`, ref forwarding to the native input,
 uncontrolled `checked` reads through the ref across toggles, `defaultChecked` respected,
 `onChange` fires, disabled blocks toggling, axe.

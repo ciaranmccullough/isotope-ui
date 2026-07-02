@@ -5,7 +5,7 @@ import { axe } from 'jest-axe';
 import { RadioButton } from './RadioButton';
 import type { RadioButtonSize } from './RadioButton.types';
 
-const sizes: RadioButtonSize[] = ['sm', 'md'];
+const sizes: RadioButtonSize[] = ['sm', 'md', 'lg'];
 
 describe('RadioButton', () => {
   it('renders a native radio with its accessible name from the wrapping label', () => {

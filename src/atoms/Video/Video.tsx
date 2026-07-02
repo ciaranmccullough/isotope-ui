@@ -40,7 +40,7 @@ export const Video = forwardRef<HTMLVideoElement, VideoProps>(function Video(
       preload={preload}
       controls={controls}
       className={classes}
-      style={aspectRatio !== undefined ? { ...style, aspectRatio } : style}
+      style={aspectRatio !== undefined ? { aspectRatio, ...style } : style}
       {...rest}
     />
   );

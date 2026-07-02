@@ -2,6 +2,9 @@
   display: inline-flex;
   align-items: center;
   gap: var(--iso-spacing-2);
+  /* WCAG 2.5.8: keep the pointer target at least 24px even when label-less. */
+  min-inline-size: var(--iso-spacing-6);
+  min-block-size: var(--iso-spacing-6);
   font-family: var(--iso-font-family-sans);
   font-size: var(--iso-font-size-md);
   font-weight: var(--iso-font-weight-regular);
@@ -39,4 +42,9 @@
 .size-md .input {
   width: var(--iso-size-icon-md);
   height: var(--iso-size-icon-md);
+}
+
+.size-lg .input {
+  width: var(--iso-size-icon-lg);
+  height: var(--iso-size-icon-lg);
 }

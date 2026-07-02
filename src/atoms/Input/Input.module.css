@@ -1,7 +1,7 @@
 .input {
   display: inline-block;
   background: var(--iso-color-surface);
-  border: var(--iso-border-width-1) solid var(--iso-color-border-strong);
+  border: var(--iso-border-width-1) solid var(--iso-color-border-control);
   border-radius: var(--iso-radius-md);
   color: var(--iso-color-text);
   font-family: var(--iso-font-family-sans);
@@ -10,6 +10,7 @@
   transition:
     background-color var(--iso-duration-fast) var(--iso-easing-standard),
     border-color var(--iso-duration-fast) var(--iso-easing-standard),
+    box-shadow var(--iso-duration-fast) var(--iso-easing-standard),
     color var(--iso-duration-fast) var(--iso-easing-standard);
 }
 
@@ -34,10 +35,12 @@
   }
 }
 
-/* Invalid state: critical border; the focus ring stays --iso-color-focus-ring. */
+/* Invalid state: critical border plus an inset ring so the boundary reads as 2px without
+   layout shift — perceivable beyond a hue shift. The focus ring stays --iso-color-focus-ring. */
 
 .invalid {
-  border-color: var(--iso-color-critical-border);
+  border-color: var(--iso-color-critical-solid-bg);
+  box-shadow: inset 0 0 0 var(--iso-border-width-1) var(--iso-color-critical-solid-bg);
 }
 
 /* Sizes */

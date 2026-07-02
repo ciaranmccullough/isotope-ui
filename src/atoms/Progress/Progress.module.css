@@ -92,7 +92,8 @@
   block-size: var(--iso-spacing-2);
 }
 
-/* Tones map the semantic solid background onto the private property the bar rules consume. */
+/* Tones map a semantic color onto the private property the bar rules consume
+   (the solid background, except where noted). */
 
 .tone-neutral {
   --_bar: var(--iso-color-neutral-solid-bg);
@@ -110,6 +111,9 @@
   --_bar: var(--iso-color-critical-solid-bg);
 }
 
+/* Caution uses the standalone-graphic token: the caution solid bg (amber-400) is
+   imperceptible against the gray-100 track (1.52:1). */
+
 .tone-caution {
-  --_bar: var(--iso-color-caution-solid-bg);
+  --_bar: var(--iso-color-caution-graphic);
 }

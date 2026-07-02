@@ -13,8 +13,10 @@ always win over these defaults.
 | `fit`         | `cover · contain`             | unset (browser default `contain`) |
 | `aspectRatio` | any CSS `aspect-ratio` string | unset (intrinsic ratio)           |
 
-`aspectRatio` is applied as an inline style and wins over `style.aspectRatio` when both are
-given. Sources and the captions `<track>` are `children`. Ref forwards to the `<video>`.
+`aspectRatio` is applied as an inline style; an `aspectRatio` inside the consumer's `style`
+prop wins over it. Library-wide rule: the `style` prop is the consumer escape hatch and always
+wins over convenience props. Sources and the captions `<track>` are `children`. Ref forwards
+to the `<video>`.
 Base styling: `display: block`, `max-width: 100%`, `height: auto`, letterbox background.
 
 ## Tokens consumed
@@ -43,6 +45,7 @@ Base styling: `display: block`, `max-width: 100%`, `height: auto`, letterbox bac
 Stories: playground with captions track, all 5 radii, both fits (square box shows
 letterbox vs crop), 3 aspect ratios, muted-autoplay-loop state. Tests: accessible name,
 default attributes present (`controls`, `playsinline`, `preload="metadata"`), explicit
-overrides win, each `radius`/`fit` renders, `aspectRatio` + `style` merge, ref is
+overrides win, each `radius`/`fit` renders, `aspectRatio` + `style` merge
+(`style.aspectRatio` wins over the prop), ref is
 `HTMLVideoElement`, children/track pass-through, `onClick` fires, axe (with captions track).
 jsdom cannot play media — tests assert attributes only, never playback.

@@ -2,7 +2,11 @@ import type { ComponentPropsWithoutRef } from 'react';
 
 export type SkeletonShape = 'text' | 'rect' | 'circle';
 
-export interface SkeletonProps extends ComponentPropsWithoutRef<'div'> {
+/**
+ * `children` is omitted: a skeleton is a pure placeholder silhouette and never renders
+ * content inside itself.
+ */
+export interface SkeletonProps extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {
   /**
    * Placeholder silhouette. `text` is a 1em-tall line (radius-sm), `rect` a rounded
    * rectangle (radius-md), `circle` a circle (radius-full, equal width/height).

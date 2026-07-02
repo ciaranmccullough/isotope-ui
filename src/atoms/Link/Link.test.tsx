@@ -49,7 +49,19 @@ describe('Link', () => {
     expect(link).toHaveAttribute('rel', 'noreferrer');
   });
 
-  it('external merges noreferrer into a consumer-provided rel without duplicating', () => {
+  it('external merges noreferrer into a consumer-provided rel that lacks it', () => {
+    render(
+      <Link href="https://example.com" external rel="me">
+        Profile
+      </Link>,
+    );
+    const rel = screen.getByRole('link', { name: 'Profile' }).getAttribute('rel');
+    const tokens = (rel ?? '').split(/\s+/);
+    expect(tokens).toContain('me');
+    expect(tokens).toContain('noreferrer');
+  });
+
+  it('external does not duplicate noreferrer in a consumer-provided rel', () => {
     render(
       <Link href="https://example.com" external rel="me noreferrer nofollow">
         Profile

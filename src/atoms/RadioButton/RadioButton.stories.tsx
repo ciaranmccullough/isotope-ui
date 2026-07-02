@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { RadioButton } from './RadioButton';
 import type { RadioButtonSize } from './RadioButton.types';
 
-const sizes: RadioButtonSize[] = ['sm', 'md'];
+const sizes: RadioButtonSize[] = ['sm', 'md', 'lg'];
 
 const meta = {
   title: 'Atoms/RadioButton',
@@ -31,6 +31,9 @@ export const Sizes: Story = {
       </RadioButton>
       <RadioButton name="sizes" value="md" size="md" defaultChecked>
         Medium (default)
+      </RadioButton>
+      <RadioButton name="sizes" value="lg" size="lg">
+        Large
       </RadioButton>
     </div>
   ),

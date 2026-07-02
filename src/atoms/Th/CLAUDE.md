@@ -21,7 +21,7 @@ styling props. Content is `children`. Ref forwards to the `<th>` (`HTMLTableCell
 ## Tokens consumed
 
 - Type: `--iso-font-family-sans`, `--iso-font-size-sm`, `--iso-font-weight-semibold`,
-  `--iso-color-text-secondary`.
+  `--iso-line-height-normal` (shares Td's vertical rhythm), `--iso-color-text-secondary`.
 - Box: `--iso-spacing-2` / `--iso-spacing-3` (block/inline padding), `--iso-border-width-1` +
   `--iso-color-border-strong` (bottom rule).
 - No motion tokens (no animation → no `prefers-reduced-motion` guard needed) and no focus-ring

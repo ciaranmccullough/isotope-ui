@@ -6,7 +6,7 @@ through the forwarded ref or `FormData`), and `invalid` sets `aria-invalid` + th
 in one prop. Works for text-like types: `text` (default) · `email` · `number` · `password` ·
 `search` · `url` · `tel`.
 
-## UI model (`InputProps` extends `Omit<ComponentPropsWithoutRef<'input'>, 'value' | 'size'>`)
+## UI model (`InputProps` extends `Omit<ComponentPropsWithoutRef<'input'>, 'value' | 'size' | 'checked' | 'children'>`)
 
 | Prop       | Values           | Default |
 | ---------- | ---------------- | ------- |
@@ -15,6 +15,10 @@ in one prop. Works for text-like types: `text` (default) · `email` · `number` 
 | `htmlSize` | `number` (chars) | —       |
 
 - `value` omitted: enforces uncontrolled usage (principle 2). Use `defaultValue`.
+- `checked` omitted for the same reason; `defaultChecked` stays available.
+- `children` omitted: `<input>` is a void element — children would type-check but crash at
+  runtime. (No type-level test pattern exists in this repo, so these exclusions are enforced by
+  the `Omit` and documented here rather than asserted in tests.)
 - Native char-width `size` attribute is re-exposed as `htmlSize` because `size` is the variant
   prop.
 - No other styling props. Ref forwards to the `<input>`.
@@ -24,10 +28,13 @@ in one prop. Works for text-like types: `text` (default) · `email` · `number` 
 - Size: `--iso-size-control-<size>` (height), `--iso-spacing-3/4/5` (padding-inline),
   `--iso-font-size-sm/md/lg`.
 - Surface/shape/type: `--iso-color-surface`, `--iso-border-width-1`,
-  `--iso-color-border-strong`, `--iso-radius-md`, `--iso-color-text`, `--iso-font-family-sans`,
+  `--iso-color-border-control` (control boundary — meets WCAG 1.4.11 non-text contrast),
+  `--iso-radius-md`, `--iso-color-text`, `--iso-font-family-sans`,
   `--iso-font-weight-regular`, `--iso-line-height-tight`.
 - Placeholder: `--iso-color-text-muted`.
-- Invalid: `--iso-color-critical-border` (border only; ring stays focus-colored).
+- Invalid: `--iso-color-critical-solid-bg` as border-color **plus** an inset
+  `--iso-border-width-1` box-shadow ring, so the boundary reads as 2px without layout shift —
+  perceivable beyond a hue shift. The focus ring stays focus-colored.
 - Focus: `--iso-focus-ring-width/offset`, `--iso-color-focus-ring`.
 - Motion: `--iso-duration-fast`, `--iso-easing-standard` (disabled under
   `prefers-reduced-motion`).

@@ -70,6 +70,18 @@ describe('Video', () => {
     });
   });
 
+  it('lets style.aspectRatio win over the aspectRatio prop (style is the escape hatch)', () => {
+    render(
+      <Video
+        src="movie.mp4"
+        aria-label="Escape hatch"
+        aspectRatio="16 / 9"
+        style={{ aspectRatio: '4 / 3' }}
+      />,
+    );
+    expect(screen.getByLabelText('Escape hatch')).toHaveStyle({ aspectRatio: '4 / 3' });
+  });
+
   it('forwards its ref to the native video element and exposes attributes through it', () => {
     const ref = createRef<HTMLVideoElement>();
     render(<Video ref={ref} src="movie.mp4" aria-label="Ref" />);

@@ -5,6 +5,7 @@
   font-family: var(--iso-font-family-sans);
   font-size: var(--iso-font-size-sm);
   font-weight: var(--iso-font-weight-semibold);
+  line-height: var(--iso-line-height-normal);
 }
 
 /* Alignment (logical values — RTL-aware) */

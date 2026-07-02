@@ -7,9 +7,9 @@ instead of being rebuilt — the platform keeps drawing the radio.
 
 ## UI model (`RadioButtonProps` extends `Omit<ComponentPropsWithoutRef<'input'>, 'checked' | 'type' | 'size'>`)
 
-| Prop   | Values    | Default |
-| ------ | --------- | ------- |
-| `size` | `sm · md` | `md`    |
+| Prop   | Values         | Default |
+| ------ | -------------- | ------- |
+| `size` | `sm · md · lg` | `md`    |
 
 - Uncontrolled: `checked` is omitted from the type — use `defaultChecked`; read state via the
   ref (`ref.current.checked`) or `FormData`.
@@ -21,11 +21,12 @@ instead of being rebuilt — the platform keeps drawing the radio.
 ## Tokens consumed
 
 - Accent: `--iso-color-accent-solid-bg` (via `accent-color` — no custom drawing).
-- Size: `--iso-size-icon-sm` / `--iso-size-icon-md` (input width/height), `--iso-spacing-0`
-  (margin reset).
+- Size: `--iso-size-icon-sm` / `--iso-size-icon-md` / `--iso-size-icon-lg` (input
+  width/height), `--iso-spacing-0` (margin reset).
 - Label typography: `--iso-font-family-sans`, `--iso-font-size-md`,
   `--iso-font-weight-regular`, `--iso-line-height-normal`, `--iso-color-text`,
-  `--iso-spacing-2` (gap).
+  `--iso-spacing-2` (gap); `--iso-spacing-6` min-inline/block-size keeps the pointer target
+  ≥ 24px when label-less (WCAG 2.5.8), with `align-items: center` keeping the control centered.
 - Focus: `--iso-focus-ring-width/offset`, `--iso-color-focus-ring` (on the input's
   `:focus-visible`).
 - Disabled: `--iso-color-text-disabled` + `not-allowed` cursor, applied with
@@ -40,7 +41,7 @@ Focus via `:focus-visible` ring tokens on the input. Disabled uses the real `dis
 
 ## Stories / tests must cover
 
-Stories: playground, both sizes, `defaultChecked`, a shared-`name` group, disabled
+Stories: playground, all three sizes, `defaultChecked`, a shared-`name` group, disabled
 (unchecked + checked). Tests: role `radio` + accessible name, each size renders, ref forwards to
 `HTMLInputElement` (type/value readable), `defaultChecked` read through ref, two RadioButtons
 sharing a `name` are mutually exclusive under user-event (ref `.checked` flips), `onChange`

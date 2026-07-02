@@ -3,11 +3,21 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { Counter } from './Counter';
+import type { CounterSize } from './Counter.types';
+
+const sizes: CounterSize[] = ['sm', 'md', 'lg'];
 
 describe('Counter', () => {
   it('renders a spinbutton with step buttons carrying accessible names', () => {
     render(<Counter aria-label="Quantity" defaultValue={1} />);
     expect(screen.getByRole('spinbutton', { name: 'Quantity' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Decrease' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Increase' })).toBeInTheDocument();
+  });
+
+  it.each(sizes)('renders the %s size with the spinbutton and both step buttons', (size) => {
+    render(<Counter aria-label={`${size} quantity`} size={size} defaultValue={1} />);
+    expect(screen.getByRole('spinbutton', { name: `${size} quantity` })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Decrease' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Increase' })).toBeInTheDocument();
   });
@@ -66,7 +76,11 @@ describe('Counter', () => {
     const ref = createRef<HTMLInputElement>();
     render(<Counter aria-label="Quantity" defaultValue={3} disabled ref={ref} />);
     expect(screen.getByRole('spinbutton', { name: 'Quantity' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Decrease' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Increase' })).toBeDisabled();
     await user.click(screen.getByRole('button', { name: 'Increase' }));
+    expect(ref.current?.value).toBe('3');
+    await user.click(screen.getByRole('button', { name: 'Decrease' }));
     expect(ref.current?.value).toBe('3');
   });
 
@@ -82,6 +96,11 @@ describe('Counter', () => {
 
   it('has no axe violations', async () => {
     const { container } = render(<Counter aria-label="Quantity" defaultValue={1} />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it('has no axe violations at a non-default size', async () => {
+    const { container } = render(<Counter aria-label="Quantity" size="lg" defaultValue={1} />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });

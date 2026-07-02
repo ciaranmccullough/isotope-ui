@@ -2,8 +2,12 @@
   display: inline-flex;
   align-items: center;
   gap: var(--iso-spacing-2);
+  /* WCAG 2.5.8: keep the pointer target at least 24px even when label-less. */
+  min-inline-size: var(--iso-spacing-6);
+  min-block-size: var(--iso-spacing-6);
   font-family: var(--iso-font-family-sans);
   font-size: var(--iso-font-size-md);
+  font-weight: var(--iso-font-weight-regular);
   line-height: var(--iso-line-height-normal);
   color: var(--iso-color-text);
   cursor: pointer;
@@ -25,7 +29,7 @@
   margin: 0;
   border: none;
   border-radius: var(--iso-radius-full);
-  background: var(--iso-color-border-strong);
+  background: var(--iso-color-border-control);
   cursor: inherit;
   transition: background-color var(--iso-duration-fast) var(--iso-easing-standard);
 }
@@ -80,4 +84,10 @@
   --_track-width: var(--iso-spacing-10);
   --_track-height: var(--iso-spacing-5);
   --_thumb-size: var(--iso-spacing-4);
+}
+
+.size-lg {
+  --_track-width: var(--iso-spacing-12);
+  --_track-height: var(--iso-spacing-6);
+  --_thumb-size: var(--iso-spacing-5);
 }

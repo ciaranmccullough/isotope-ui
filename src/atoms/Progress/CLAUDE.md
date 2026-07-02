@@ -25,6 +25,8 @@ rule does not apply; `value` is display data from the UI model. Ref forwards to 
 
 - Bar color: `--iso-color-<tone>-solid-bg` (via private `--_bar` — tone classes set it; the
   `::-webkit-progress-value`, `::-moz-progress-bar`, and indeterminate-sheen rules consume it).
+  Exception: `caution` uses `--iso-color-caution-graphic` — the caution solid bg (amber-400) is
+  imperceptible against the gray-100 track (1.52:1), so the bar uses the standalone-graphic token.
 - Track: `--iso-color-neutral-subtle-bg` (element background for Firefox + indeterminate canvas,
   `::-webkit-progress-bar` for WebKit/Blink).
 - Size: `--iso-spacing-1` (sm height), `--iso-spacing-2` (md height).

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
-export type RadioButtonSize = 'sm' | 'md';
+export type RadioButtonSize = 'sm' | 'md' | 'lg';
 
 export interface RadioButtonProps extends Omit<
   ComponentPropsWithoutRef<'input'>,

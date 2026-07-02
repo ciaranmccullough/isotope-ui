@@ -5,7 +5,7 @@ import { axe } from 'jest-axe';
 import { Switch } from './Switch';
 import type { SwitchSize } from './Switch.types';
 
-const sizes: SwitchSize[] = ['sm', 'md'];
+const sizes: SwitchSize[] = ['sm', 'md', 'lg'];
 
 describe('Switch', () => {
   it('renders a switch whose accessible name comes from the label text', () => {

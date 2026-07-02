@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Switch } from './Switch';
 import type { SwitchSize } from './Switch.types';
 
-const sizes: SwitchSize[] = ['sm', 'md'];
+const sizes: SwitchSize[] = ['sm', 'md', 'lg'];
 
 const meta = {
   title: 'Atoms/Switch',
@@ -28,6 +28,7 @@ export const Sizes: Story = {
     <div style={{ display: 'flex', gap: 'var(--iso-spacing-4)', alignItems: 'center' }}>
       <Switch size="sm">Small</Switch>
       <Switch size="md">Medium</Switch>
+      <Switch size="lg">Large</Switch>
     </div>
   ),
 };

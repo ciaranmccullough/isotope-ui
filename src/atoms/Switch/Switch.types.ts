@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export type SwitchSize = 'sm' | 'md';
+export type SwitchSize = 'sm' | 'md' | 'lg';
 
 /**
  * `checked` is omitted to enforce uncontrolled usage: consumers set `defaultChecked` and read the

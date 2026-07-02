@@ -46,3 +46,10 @@ All 12 `as` elements, 8 sizes, 4 weights, 5 tones (inverse on a solid surface), 
 truncation, and a semantics-vs-scale demo; default renders a `<p>` (role `paragraph`), heading
 level + accessible name via role query, per-element rendering through the forwarded ref,
 className merge, onClick via user-event, axe.
+
+## Deviations noted for the integrator
+
+- `tone` values `default | secondary | muted | disabled | inverse` are outside the shared tone
+  vocabulary (`neutral|accent|positive|critical|caution`) — intentional: Text's tones map to the
+  text-color semantic tokens (`--iso-color-text[-*]`), not to tone sets; documented here per the
+  variant contract's "shared vocabulary" rule.

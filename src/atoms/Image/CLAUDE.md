@@ -9,7 +9,7 @@ Wraps: **`<img>`** (exactly one). Pain points removed:
   `loading`/`decoding` props always win over both defaults.
 - `alt` is required at the type level (`""` for decorative images) — no more forgotten alt text.
 
-## UI model (`ImageProps` extends `ComponentPropsWithoutRef<'img'>`, `alt` re-declared required)
+## UI model (`ImageProps` extends `Omit<ComponentPropsWithoutRef<'img'>, 'children'>`, `alt` re-declared required)
 
 | Prop          | Values                                         | Default             |
 | ------------- | ---------------------------------------------- | ------------------- |
@@ -20,8 +20,9 @@ Wraps: **`<img>`** (exactly one). Pain points removed:
 
 `aspectRatio` is content-shaped, so it is an inline style, not a token variant; an
 `aspectRatio` inside the consumer's `style` prop wins over it. `srcSet`, `sizes` and
-`fetchPriority` pass through natively (React 19 camelCase `fetchPriority`). No other styling
-props. Ref forwards to the `<img>`.
+`fetchPriority` pass through natively (React 19 camelCase `fetchPriority`). `children` is
+omitted at the type level: `<img>` is a void element, so children would type-check but crash at
+runtime. No other styling props. Ref forwards to the `<img>`.
 
 ## Tokens consumed
 

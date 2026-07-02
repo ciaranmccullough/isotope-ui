@@ -3,7 +3,11 @@ import type { ComponentPropsWithoutRef } from 'react';
 export type ImageFit = 'cover' | 'contain' | 'fill' | 'scale-down' | 'none';
 export type ImageRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 
-export interface ImageProps extends ComponentPropsWithoutRef<'img'> {
+/**
+ * `children` is omitted because `<img>` is a void element — children would type-check but
+ * crash at runtime.
+ */
+export interface ImageProps extends Omit<ComponentPropsWithoutRef<'img'>, 'children'> {
   /**
    * Alternative text. Required — the type system will not let you forget it.
    * Pass `""` (empty string) for purely decorative images.
