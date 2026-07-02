@@ -1,0 +1,44 @@
+.video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: var(--iso-color-neutral-solid-bg);
+}
+
+/* The element is focusable when `controls` is on (the default). */
+.video:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+/* Radius */
+
+.radius-none {
+  border-radius: var(--iso-radius-none);
+}
+
+.radius-sm {
+  border-radius: var(--iso-radius-sm);
+}
+
+.radius-md {
+  border-radius: var(--iso-radius-md);
+}
+
+.radius-lg {
+  border-radius: var(--iso-radius-lg);
+}
+
+.radius-xl {
+  border-radius: var(--iso-radius-xl);
+}
+
+/* Fit */
+
+.fit-cover {
+  object-fit: cover;
+}
+
+.fit-contain {
+  object-fit: contain;
+}
