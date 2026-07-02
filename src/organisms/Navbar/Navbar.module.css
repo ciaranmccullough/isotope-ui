@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: var(--iso-spacing-6);
+  padding-block: var(--iso-spacing-3);
+  padding-inline: var(--iso-spacing-6);
+  background: var(--iso-color-surface);
+  border-block-end: var(--iso-border-width-1) solid var(--iso-color-border);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+}
+
+.sticky {
+  position: sticky;
+  inset-block-start: var(--iso-spacing-0);
+  z-index: var(--iso-z-sticky);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--iso-spacing-2);
+  font-weight: var(--iso-font-weight-semibold);
+  font-size: var(--iso-font-size-lg);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--iso-spacing-2);
+  margin-inline-start: auto;
+}
