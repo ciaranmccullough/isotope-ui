@@ -2,7 +2,7 @@
 
 ## Dev environment
 
-- Node ≥ 20, [pnpm](https://pnpm.io) ≥ 10.
+- Node 24 (`nvm use` reads [.nvmrc](.nvmrc); consumers need ≥ 20.19 per `engines`), [pnpm](https://pnpm.io) ≥ 10.
 - `pnpm install` — installs deps and sets up Husky git hooks.
 
 ## Scripts
