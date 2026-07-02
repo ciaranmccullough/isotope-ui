@@ -1,0 +1,30 @@
+.td {
+  padding-block: var(--iso-spacing-2);
+  padding-inline: var(--iso-spacing-3);
+  border-bottom: var(--iso-border-width-1) solid var(--iso-color-border);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-md);
+  line-height: var(--iso-line-height-normal);
+}
+
+/* Align */
+
+.align-start {
+  text-align: start;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-end {
+  text-align: end;
+}
+
+/* Numeric — declared after the align classes so it wins the cascade (documented precedence). */
+
+.numeric {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
