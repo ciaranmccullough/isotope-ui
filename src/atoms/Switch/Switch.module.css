@@ -1,0 +1,83 @@
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--iso-spacing-2);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-md);
+  line-height: var(--iso-line-height-normal);
+  color: var(--iso-color-text);
+  cursor: pointer;
+}
+
+.switch:has(.input:disabled) {
+  cursor: not-allowed;
+  color: var(--iso-color-text-disabled);
+}
+
+/* The checkbox itself renders as the track; the thumb is its ::before. */
+
+.input {
+  appearance: none;
+  position: relative;
+  flex: none;
+  width: var(--_track-width);
+  height: var(--_track-height);
+  margin: 0;
+  border: none;
+  border-radius: var(--iso-radius-full);
+  background: var(--iso-color-border-strong);
+  cursor: inherit;
+  transition: background-color var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.input::before {
+  content: '';
+  position: absolute;
+  top: calc((var(--_track-height) - var(--_thumb-size)) / 2);
+  left: calc((var(--_track-height) - var(--_thumb-size)) / 2);
+  width: var(--_thumb-size);
+  height: var(--_thumb-size);
+  border-radius: var(--iso-radius-full);
+  background: var(--iso-color-surface);
+  box-shadow: var(--iso-shadow-sm);
+  transition: transform var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.input:checked {
+  background: var(--iso-color-accent-solid-bg);
+}
+
+.input:checked::before {
+  transform: translateX(calc(var(--_track-width) - var(--_track-height)));
+}
+
+.input:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+/* Declared after :checked so a disabled switch shows the subtle track in either state. */
+.input:disabled {
+  background: var(--iso-color-neutral-subtle-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .input::before {
+    transition: none;
+  }
+}
+
+/* Sizes set private track/thumb props; .input and its ::before consume them. */
+
+.size-sm {
+  --_track-width: var(--iso-spacing-8);
+  --_track-height: var(--iso-spacing-4);
+  --_thumb-size: var(--iso-spacing-3);
+}
+
+.size-md {
+  --_track-width: var(--iso-spacing-10);
+  --_track-height: var(--iso-spacing-5);
+  --_thumb-size: var(--iso-spacing-4);
+}
