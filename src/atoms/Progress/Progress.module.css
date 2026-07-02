@@ -1,0 +1,115 @@
+.progress {
+  /* Removing UA chrome so the per-engine pseudo-elements below take over — not visual values. */
+  appearance: none;
+  border: none;
+  display: block;
+  inline-size: 100%;
+  overflow: hidden;
+  border-radius: var(--iso-radius-full);
+  /* Firefox paints the track on the element itself (WebKit covers it with
+     ::-webkit-progress-bar). Also the canvas for the indeterminate sheen. */
+  background-color: var(--iso-color-neutral-subtle-bg);
+}
+
+/* Track — WebKit/Blink */
+.progress::-webkit-progress-bar {
+  background-color: var(--iso-color-neutral-subtle-bg);
+  border-radius: var(--iso-radius-full);
+}
+
+/* Bar — WebKit/Blink */
+.progress::-webkit-progress-value {
+  background-color: var(--_bar);
+  border-radius: var(--iso-radius-full);
+  transition: inline-size var(--iso-duration-base) var(--iso-easing-standard);
+}
+
+/* Bar — Firefox (kept as a separate rule: an unknown pseudo-element in a selector
+   list would invalidate the whole rule in the other engine). */
+.progress::-moz-progress-bar {
+  background-color: var(--_bar);
+  border-radius: var(--iso-radius-full);
+  transition: inline-size var(--iso-duration-base) var(--iso-easing-standard);
+}
+
+/* Indeterminate (no `value` attribute): make both engines' bar layers transparent so the
+   element background shows, and loop a sheen across it so "busy" is distinguishable
+   from "0%". Percentages here are gradient/position geometry, not design values. */
+
+.progress:indeterminate {
+  background-image: linear-gradient(
+    to right,
+    var(--iso-color-neutral-subtle-bg),
+    var(--_bar),
+    var(--iso-color-neutral-subtle-bg)
+  );
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: indeterminate-sheen var(--iso-duration-loop) var(--iso-easing-linear) infinite;
+}
+
+.progress:indeterminate::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+.progress:indeterminate::-moz-progress-bar {
+  background-color: transparent;
+}
+
+@keyframes indeterminate-sheen {
+  from {
+    background-position-x: -100%;
+  }
+
+  to {
+    background-position-x: 200%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress::-webkit-progress-value {
+    transition: none;
+  }
+
+  .progress::-moz-progress-bar {
+    transition: none;
+  }
+
+  .progress:indeterminate {
+    animation: none;
+    /* Static full-width sheen still reads as "busy" without motion. */
+    background-size: 100% 100%;
+  }
+}
+
+/* Sizes */
+
+.size-sm {
+  block-size: var(--iso-spacing-1);
+}
+
+.size-md {
+  block-size: var(--iso-spacing-2);
+}
+
+/* Tones map the semantic solid background onto the private property the bar rules consume. */
+
+.tone-neutral {
+  --_bar: var(--iso-color-neutral-solid-bg);
+}
+
+.tone-accent {
+  --_bar: var(--iso-color-accent-solid-bg);
+}
+
+.tone-positive {
+  --_bar: var(--iso-color-positive-solid-bg);
+}
+
+.tone-critical {
+  --_bar: var(--iso-color-critical-solid-bg);
+}
+
+.tone-caution {
+  --_bar: var(--iso-color-caution-solid-bg);
+}
