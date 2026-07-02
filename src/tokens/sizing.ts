@@ -16,6 +16,7 @@ export const sizing = {
   'avatar-md': '2.5rem',
   'avatar-lg': '3rem',
   'avatar-xl': '4rem',
+  'container-xs': '28rem',
   'container-sm': '40rem',
   'container-md': '48rem',
   'container-lg': '64rem',

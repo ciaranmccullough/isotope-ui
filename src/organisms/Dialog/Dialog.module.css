@@ -1,0 +1,57 @@
+.dialog {
+  padding: var(--iso-spacing-6);
+  border: none;
+  border-radius: var(--iso-radius-lg);
+  box-shadow: var(--iso-shadow-overlay);
+  background: var(--iso-color-surface);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+  /* Top-layer element — no z-index token needed (see zIndex.ts). */
+  width: min(var(--_max-inline), calc(100vw - var(--iso-spacing-8)));
+}
+
+.dialog::backdrop {
+  background: var(--iso-color-backdrop);
+}
+
+.dialog[open] {
+  animation: dialog-in var(--iso-duration-base) var(--iso-easing-enter);
+}
+
+.dialog[open]::backdrop {
+  animation: backdrop-in var(--iso-duration-base) var(--iso-easing-linear);
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--iso-spacing-2));
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .dialog[open]::backdrop {
+    animation: none;
+  }
+}
+
+/* Sizes */
+
+.size-sm {
+  --_max-inline: var(--iso-size-container-xs);
+}
+
+.size-md {
+  --_max-inline: var(--iso-size-container-sm);
+}
+
+.size-lg {
+  --_max-inline: var(--iso-size-container-md);
+}
