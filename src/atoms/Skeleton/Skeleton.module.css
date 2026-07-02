@@ -1,0 +1,51 @@
+.skeleton {
+  display: block;
+  background-image: linear-gradient(
+    90deg,
+    var(--iso-color-neutral-subtle-bg),
+    var(--iso-color-neutral-subtle-bg-hover),
+    var(--iso-color-neutral-subtle-bg)
+  );
+  /* Oversized so the highlight can sweep across the element. The percentages and the
+     gradient angle are animation geometry, not design values — no token applies. */
+  background-size: 200% 100%;
+  animation: shimmer var(--iso-duration-loop) var(--iso-easing-linear) infinite;
+}
+
+/* One full tile period (background-size is 200%), so the loop is seamless. */
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background-image: none;
+    background-color: var(--iso-color-neutral-subtle-bg);
+  }
+}
+
+/* Shapes */
+
+.shape-text {
+  /* 1em tracks the surrounding font size, so a text line placeholder matches the text
+     it stands in for (content-relative, not a tokenizable design value). */
+  height: 1em;
+  border-radius: var(--iso-radius-sm);
+}
+
+.shape-rect {
+  border-radius: var(--iso-radius-md);
+}
+
+.shape-circle {
+  border-radius: var(--iso-radius-full);
+  /* Equal width/height: consumers set one dimension and stay circular. */
+  aspect-ratio: 1 / 1;
+}
