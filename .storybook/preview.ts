@@ -10,7 +10,9 @@ const preview: Preview = {
       },
     },
     a11y: {
-      // Fail CI story tests on accessibility violations instead of only warning.
+      // Report violations as failures in the dev-mode a11y panel. Panel-only: nothing runs
+      // story tests in CI — enforced a11y coverage is the jest-axe assertion in each
+      // component's unit tests (see tests/CLAUDE.md).
       test: 'error',
     },
   },

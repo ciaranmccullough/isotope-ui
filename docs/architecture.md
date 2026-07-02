@@ -8,7 +8,9 @@ tokens  →  atoms  →  molecules  →  organisms
 
 - **tokens** (`src/tokens/`) — the design contract. Typed TS modules, emitted as `--iso-*` CSS
   custom properties in a generated `tokens.css`.
-- **atoms** (`src/atoms/`) — one native element each, pain points removed. No composition.
+- **atoms** (`src/atoms/`) — one native element each, pain points removed. No composition
+  (single documented exception: `Counter`, which composes `Button` + `Input` — see
+  `src/atoms/CLAUDE.md`).
 - **molecules** (`src/molecules/`) — compose atoms, wire a11y relationships, stay uncontrolled.
 - **organisms** (`src/organisms/`) — complete UI regions built from molecules/atoms. No business
   logic; open/queue state lives with the consumer.

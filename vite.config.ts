@@ -8,6 +8,9 @@ export default defineConfig({
     dts({
       tsconfigPath: './tsconfig.build.json',
       entryRoot: 'src',
+      // Bundle declarations into a single dist/index.d.ts. The multi-file output copies the
+      // source's extensionless relative imports, which node16/nodenext consumers can't resolve.
+      rollupTypes: true,
     }),
   ],
   build: {

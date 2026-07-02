@@ -4,8 +4,12 @@ An atom wraps **exactly one native element** and removes its pain points. Nothin
 
 - One native/semantic element at the core (`<button>`, `<input>`, `<img>`, `<progress>`, `<li>`…).
   Spreads the element's remaining native props (`ComponentPropsWithoutRef<'x'>`).
-- **No composition of other components** — atoms never import other atoms. (Exception by explicit
-  contract: `Counter` composes `Button` + `Input`; its CLAUDE.md documents why.)
+- **No composition of other components** — atoms never import other atoms.
+  - Single sanctioned exception, fixed by the library spec: `Counter` stays in the atoms tier but
+    composes `Button` + uncontrolled `Input`. For Counter only, the composition rule and the
+    "exactly one native element" rule are waived; every other atom rule still applies (dumb,
+    uncontrolled, ref forwarded to the `<input>`, tokens only). Its own CLAUDE.md restates this.
+    Do not use Counter as precedent for composing in any other atom.
 - Dumb: renders from props only. No `useState`/`useReducer`/`useEffect` for values or behavior.
 - Uncontrolled where it's a form control: no `value` prop — use `defaultValue`/`defaultChecked`;
   the consumer reads via ref/`FormData`.
