@@ -95,6 +95,9 @@ export const colors = {
   // Borders & focus
   border: palette.gray['200'],
   'border-strong': palette.gray['300'],
+  // Boundary of form controls where the border is the sole visual indicator — must stay >= 3:1
+  // against surface (WCAG 1.4.11). gray-500 = 4.83:1 on white.
+  'border-control': palette.gray['500'],
   'focus-ring': palette.blue['500'],
 
   // Tone: neutral
@@ -146,6 +149,10 @@ export const colors = {
   'caution-subtle-bg-hover': palette.amber['100'],
   'caution-subtle-fg': palette.amber['800'],
   'caution-border': palette.amber['300'],
+  // caution-solid-bg (amber-400) is tuned for dark TEXT on it; as a standalone graphic (progress
+  // bars, meters) it fails 3:1 non-text contrast. Graphics use this instead (amber-700 = 4.56:1
+  // vs the gray-100 track).
+  'caution-graphic': palette.amber['700'],
 } as const;
 
 export type ColorToken = keyof typeof colors;

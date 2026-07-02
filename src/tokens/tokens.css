@@ -85,6 +85,7 @@
   --iso-color-text-link-hover: #1d4ed8;
   --iso-color-border: #e5e7eb;
   --iso-color-border-strong: #d1d5db;
+  --iso-color-border-control: #6b7280;
   --iso-color-focus-ring: #3b82f6;
   --iso-color-neutral-solid-bg: #1f2937;
   --iso-color-neutral-solid-bg-hover: #374151;
@@ -126,6 +127,7 @@
   --iso-color-caution-subtle-bg-hover: #fef3c7;
   --iso-color-caution-subtle-fg: #92400e;
   --iso-color-caution-border: #fcd34d;
+  --iso-color-caution-graphic: #b45309;
   --iso-shadow-sm: 0 1px 2px 0 rgb(17 24 39 / 0.05);
   --iso-shadow-md: 0 4px 8px -2px rgb(17 24 39 / 0.1), 0 2px 4px -2px rgb(17 24 39 / 0.06);
   --iso-shadow-lg: 0 12px 24px -4px rgb(17 24 39 / 0.12), 0 4px 8px -4px rgb(17 24 39 / 0.08);
