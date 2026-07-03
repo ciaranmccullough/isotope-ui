@@ -1,0 +1,78 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--iso-spacing-2);
+  padding: var(--iso-spacing-1) var(--iso-spacing-3);
+  border-radius: var(--iso-radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-xs);
+  font-weight: var(--iso-font-weight-medium);
+  line-height: var(--iso-line-height-tight);
+}
+
+/* Static surface: nothing animates on the chip itself (the composed Button brings its own
+   transition, focus ring and reduced-motion guard). */
+
+/* Decorative status dot — currentColor inherits the tone foreground, no extra color token. */
+.dot {
+  flex-shrink: 0;
+  inline-size: var(--iso-spacing-2);
+  block-size: var(--iso-spacing-2);
+  border-radius: var(--iso-radius-full);
+  background: currentColor;
+}
+
+/* Compact round remove button. The Button's sm class sets control height/padding/font-size;
+   two-class specificity beats those size and emphasis classes deterministically. The 24px
+   block-size keeps the WCAG 2.5.8 minimum target; negative margins tuck it into the pill's
+   padding so the chip's height stays text-driven and the button hugs the rounded end. */
+.chip .remove {
+  flex-shrink: 0;
+  block-size: var(--iso-size-icon-lg);
+  aspect-ratio: 1;
+  padding-inline: var(--iso-spacing-0);
+  margin-block: calc(-1 * var(--iso-spacing-1));
+  margin-inline-end: calc(-1 * var(--iso-spacing-2));
+  border-radius: var(--iso-radius-full);
+  font-size: var(--iso-font-size-md);
+}
+
+/* Ghost Button hover uses the tone's subtle-bg — identical to the chip background, so hover
+   feedback vanishes on this tinted surface. Step to subtle-bg-hover instead (Toast pattern). */
+.chip .remove:hover:not(:disabled) {
+  background: var(--_remove-hover);
+}
+
+/* Tones map semantic tone tokens onto private properties the root and overrides consume. */
+
+.tone-neutral {
+  --_bg: var(--iso-color-neutral-subtle-bg);
+  --_fg: var(--iso-color-neutral-subtle-fg);
+  --_remove-hover: var(--iso-color-neutral-subtle-bg-hover);
+}
+
+.tone-accent {
+  --_bg: var(--iso-color-accent-subtle-bg);
+  --_fg: var(--iso-color-accent-subtle-fg);
+  --_remove-hover: var(--iso-color-accent-subtle-bg-hover);
+}
+
+.tone-positive {
+  --_bg: var(--iso-color-positive-subtle-bg);
+  --_fg: var(--iso-color-positive-subtle-fg);
+  --_remove-hover: var(--iso-color-positive-subtle-bg-hover);
+}
+
+.tone-critical {
+  --_bg: var(--iso-color-critical-subtle-bg);
+  --_fg: var(--iso-color-critical-subtle-fg);
+  --_remove-hover: var(--iso-color-critical-subtle-bg-hover);
+}
+
+.tone-caution {
+  --_bg: var(--iso-color-caution-subtle-bg);
+  --_fg: var(--iso-color-caution-subtle-fg);
+  --_remove-hover: var(--iso-color-caution-subtle-bg-hover);
+}

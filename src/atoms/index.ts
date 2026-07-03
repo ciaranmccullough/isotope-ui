@@ -1,6 +1,7 @@
 export * from './Avatar';
 export * from './Button';
 export * from './Caption';
+export * from './Checkbox';
 export * from './Counter';
 export * from './Icon';
 export * from './Image';
@@ -11,6 +12,7 @@ export * from './Progress';
 export * from './RadioButton';
 export * from './Skeleton';
 export * from './Switch';
+export * from './Tag';
 export * from './Td';
 export * from './Text';
 export * from './Th';

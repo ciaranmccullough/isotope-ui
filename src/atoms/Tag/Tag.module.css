@@ -1,0 +1,41 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--iso-spacing-1);
+  padding: var(--iso-spacing-1) var(--iso-spacing-2);
+  border-radius: var(--iso-radius-sm);
+  font-family: var(--iso-font-family-sans);
+  font-size: var(--iso-font-size-xs);
+  font-weight: var(--iso-font-weight-medium);
+  line-height: var(--iso-line-height-tight);
+}
+
+/* Not focusable and nothing animates: no focus-ring tokens, no motion tokens, no
+   prefers-reduced-motion guard needed. */
+
+/* Tones — the subtle bg/fg pairing, same AA-checked sets the Button's subtle emphasis uses. */
+
+.tone-neutral {
+  background: var(--iso-color-neutral-subtle-bg);
+  color: var(--iso-color-neutral-subtle-fg);
+}
+
+.tone-accent {
+  background: var(--iso-color-accent-subtle-bg);
+  color: var(--iso-color-accent-subtle-fg);
+}
+
+.tone-positive {
+  background: var(--iso-color-positive-subtle-bg);
+  color: var(--iso-color-positive-subtle-fg);
+}
+
+.tone-critical {
+  background: var(--iso-color-critical-subtle-bg);
+  color: var(--iso-color-critical-subtle-fg);
+}
+
+.tone-caution {
+  background: var(--iso-color-caution-subtle-bg);
+  color: var(--iso-color-caution-subtle-fg);
+}
