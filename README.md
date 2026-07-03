@@ -79,11 +79,11 @@ yours.
 
 ## Component inventory
 
-| Tier      | Components                                                                                                                             |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Atoms     | Text, Icon, Avatar, Button, Input, Switch, RadioButton, Progress, Skeleton, Image, Video, Link, Counter, ListItem, Caption, Th, Td, Tr |
-| Molecules | FormField, Select, RadioGroup, List, TableSection (Thead/Tbody/Tfoot), Toast                                                           |
-| Organisms | Dialog, Table, Navbar, Footer, ToastProvider/ToastRegion                                                                               |
+| Tier      | Components                                                                                                                                            |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Atoms     | Text, Icon, Avatar, Button, Input, Checkbox, Switch, RadioButton, Tag, Progress, Skeleton, Image, Video, Link, Counter, ListItem, Caption, Th, Td, Tr |
+| Molecules | FormField, Select, RadioGroup, List, TableSection (Thead/Tbody/Tfoot), Toast, Chip, SearchBar                                                         |
+| Organisms | Dialog, Table, Navbar, Footer, ToastProvider/ToastRegion                                                                                              |
 
 Status: under active development, building atoms-first. See the repo issues/PRs for progress.
 
