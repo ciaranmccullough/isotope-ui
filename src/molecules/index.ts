@@ -1,3 +1,4 @@
+export * from './Chip';
 export * from './FormField';
 export * from './List';
 export * from './RadioGroup';
