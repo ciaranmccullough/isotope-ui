@@ -68,7 +68,7 @@
     "prepare": "husky",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && changeset publish && node scripts/github-release.mjs"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,cjs,mjs}": [
