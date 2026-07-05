@@ -16,6 +16,7 @@
 | `pnpm build`        | Tokens → Vite library build → ESM + d.ts + CSS               |
 | `pnpm build:tokens` | Regenerate `src/tokens/tokens.css` from the TS token modules |
 | `pnpm changeset`    | Record a changeset for your change                           |
+| `pnpm release`      | Publish to npm, push the tag, and create the GitHub Release  |
 
 ## Git hooks (Husky)
 
@@ -57,3 +58,22 @@ src/<tier>/<Name>/
 - PRs must be green on CI and include stories + tests — reviewers look at the Storybook build
   first.
 - No new runtime dependencies without prior discussion in an issue.
+
+## Releasing
+
+Versioning is [changesets]. Publishing to npm is **manual** (no `NPM_TOKEN` in CI).
+
+1. Land your changes with a changeset (`pnpm changeset`) — see "Definition of done".
+2. On merge to `main`, the Release workflow opens/updates a **"Version Packages" PR** that bumps
+   the version and writes `CHANGELOG.md`.
+3. Merge that PR.
+4. From an npm-authenticated machine (`npm login`), on an up-to-date `main`:
+
+   ```sh
+   pnpm release
+   ```
+
+   This builds, publishes to npm (`changeset publish`), pushes the `isotope-ui@<version>` tag, and
+   creates the matching GitHub Release from the CHANGELOG (`scripts/github-release.mjs`).
+
+[changesets]: https://github.com/changesets/changesets
