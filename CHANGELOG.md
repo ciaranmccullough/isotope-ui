@@ -1,5 +1,22 @@
 # isotope-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- 5b6c50f: Add the **Calendar** atom — a native date `<input>` with a `type` variant (`date` |
+  `datetime-local`, default `date`). Uncontrolled by construction (no `value` prop; set
+  `defaultValue` in the native `yyyy-mm-dd` / `yyyy-mm-ddThh:mm` format and read via the forwarded
+  ref or `FormData`), with `size` and `invalid` variants. Platform-native: the browser draws the
+  calendar/clock popover and validates; `accent-color` tints the picker indicator and
+  `min` / `max` / `step` pass straight through.
+
+### Patch Changes
+
+- 5b6c50f: **FormField** now reads a child's existing ref from the location the running React major uses —
+  `props.ref` on React 19, `element.ref` on React 18 and earlier — so merging a consumer-set child
+  ref no longer trips React 18.3's "ref is not a prop" dev warning. Behaviour is unchanged.
+
 ## 0.2.0
 
 ### Minor Changes
