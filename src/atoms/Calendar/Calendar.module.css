@@ -1,0 +1,73 @@
+/* Platform-native: no `appearance: none` — the browser keeps drawing its own date fields, calendar
+   picker indicator, and popover. Only the field box (font, colors, border, radius, size) is styled,
+   mirroring Input so a date field sits flush beside text fields. */
+
+.calendar {
+  display: inline-block;
+  background: var(--iso-color-surface);
+  border: var(--iso-border-width-1) solid var(--iso-color-border-control);
+  border-radius: var(--iso-radius-md);
+  color: var(--iso-color-text);
+  font-family: var(--iso-font-family-sans);
+  font-weight: var(--iso-font-weight-regular);
+  line-height: var(--iso-line-height-tight);
+  /* Tint the native picker indicator and the popover's selected day/time. */
+  accent-color: var(--iso-color-accent-solid-bg);
+  transition:
+    background-color var(--iso-duration-fast) var(--iso-easing-standard),
+    border-color var(--iso-duration-fast) var(--iso-easing-standard),
+    box-shadow var(--iso-duration-fast) var(--iso-easing-standard),
+    color var(--iso-duration-fast) var(--iso-easing-standard);
+}
+
+.calendar:focus-visible {
+  outline: var(--iso-focus-ring-width) solid var(--iso-color-focus-ring);
+  outline-offset: var(--iso-focus-ring-offset);
+}
+
+.calendar:disabled {
+  cursor: not-allowed;
+  background: var(--iso-color-surface-sunken);
+  color: var(--iso-color-text-disabled);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar {
+    transition: none;
+  }
+}
+
+/* Invalid state mirrors Input's .invalid: critical border plus an inset ring so the boundary reads
+   as 2px without layout shift — perceivable beyond a hue shift. The focus ring stays
+   focus-colored. The attribute selector lets an aria-invalid injector (e.g. FormField) render the
+   same visual state as the `invalid` prop. */
+.invalid,
+.calendar[aria-invalid='true'] {
+  border-color: var(--iso-color-critical-solid-bg);
+  box-shadow: inset 0 0 0 var(--iso-border-width-1) var(--iso-color-critical-solid-bg);
+}
+
+/* The calendar picker indicator is a clickable target — show the pointer cursor over it. */
+.calendar::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* Sizes */
+
+.size-sm {
+  height: var(--iso-size-control-sm);
+  padding-inline: var(--iso-spacing-3);
+  font-size: var(--iso-font-size-sm);
+}
+
+.size-md {
+  height: var(--iso-size-control-md);
+  padding-inline: var(--iso-spacing-4);
+  font-size: var(--iso-font-size-md);
+}
+
+.size-lg {
+  height: var(--iso-size-control-lg);
+  padding-inline: var(--iso-spacing-5);
+  font-size: var(--iso-font-size-lg);
+}

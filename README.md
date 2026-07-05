@@ -22,6 +22,13 @@ already gives you for free.
 - **Accessible by default.** Semantic elements first, ARIA to fill gaps, `jest-axe` in every
   component's tests.
 
+## Requirements
+
+- **React 18 or 19** with the matching React DOM — both are peer dependencies
+  (`react` / `react-dom` `^18.0.0 || ^19.0.0`). isotope-ui does **not** require React 19, and there
+  is no React 20 requirement; React 18 and 19 are supported equally.
+- **Node.js ≥ 20.19** (declared in `engines`) to build or develop the library from source.
+
 ## Install
 
 ```sh
@@ -79,11 +86,11 @@ yours.
 
 ## Component inventory
 
-| Tier      | Components                                                                                                                                            |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Atoms     | Text, Icon, Avatar, Button, Input, Checkbox, Switch, RadioButton, Tag, Progress, Skeleton, Image, Video, Link, Counter, ListItem, Caption, Th, Td, Tr |
-| Molecules | FormField, Select, RadioGroup, List, TableSection (Thead/Tbody/Tfoot), Toast, Chip, SearchBar                                                         |
-| Organisms | Dialog, Table, Navbar, Footer, ToastProvider/ToastRegion                                                                                              |
+| Tier      | Components                                                                                                                                                      |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Atoms     | Text, Icon, Avatar, Button, Input, Calendar, Checkbox, Switch, RadioButton, Tag, Progress, Skeleton, Image, Video, Link, Counter, ListItem, Caption, Th, Td, Tr |
+| Molecules | FormField, Select, RadioGroup, List, TableSection (Thead/Tbody/Tfoot), Toast, Chip, SearchBar                                                                   |
+| Organisms | Dialog, Table, Navbar, Footer, ToastProvider/ToastRegion                                                                                                        |
 
 Status: under active development, building atoms-first. See the repo issues/PRs for progress.
 

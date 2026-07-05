@@ -1,4 +1,4 @@
-import { cloneElement, forwardRef, useId } from 'react';
+import { cloneElement, forwardRef, useId, version } from 'react';
 import type { Ref } from 'react';
 import type { FormFieldControlProps, FormFieldProps } from './FormField.types';
 import styles from './FormField.module.css';
@@ -41,9 +41,13 @@ export const FormField = forwardRef<HTMLElement, FormFieldProps>(function FormFi
 
   const childProps = children.props;
 
-  // React 19 exposes an element's ref on props; React 18 kept it on the element object.
+  // React 19 moved a child's ref onto its props; React ≤18 kept it on the element object (and
+  // React 18.3 warns the moment you read `props.ref`). Read only the location the running React
+  // actually uses, so neither major's ref-deprecation dev warning fires — the ref still merges.
   const childRef =
-    childProps.ref ?? (children as unknown as { ref?: Ref<HTMLElement> | null }).ref ?? null;
+    (Number.parseInt(version, 10) >= 19
+      ? childProps.ref
+      : (children as unknown as { ref?: Ref<HTMLElement> | null }).ref) ?? null;
 
   const setRefs = (node: HTMLElement | null): void => {
     assignRef(childRef, node);
