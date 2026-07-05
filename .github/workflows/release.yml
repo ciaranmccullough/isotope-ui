@@ -6,6 +6,12 @@ on:
 
 concurrency: release-${{ github.ref }}
 
+# The changesets action commits "Version Packages" (a non-Conventional-Commits message) and
+# pushes it; disable husky here so the repo's commit-msg (commitlint) and pre-push hooks don't
+# run against that bot commit and fail the release — git hooks are dev-machine guards, not CI's.
+env:
+  HUSKY: '0'
+
 permissions:
   contents: write
   pull-requests: write
